@@ -10,8 +10,8 @@ export const SignUp = () => {
                 <input type="text" id="fullName" placeholder="enter full name" />
                 <label htmlFor='email'>Email</label>
                 <input type="email" id="email" placeholder="enter email" />
-                <label htmlFor="mobileNo">Mobile Number</label>
-                <input type="tel" id="mobileNo" placeholder="enter mobile number" />
+                <label htmlFor="mobileNumber">Mobile Number</label>
+                <input type="tel" id="mobileNumber" placeholder="enter mobile number" />
                 <label htmlFor="password">Set password</label>
                 <input type="password" id="password" placeholder="password" />
                 <label htmlFor="confirmPassword">Confirm Password</label>
