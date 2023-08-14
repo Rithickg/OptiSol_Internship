@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-interface UserTypes {
+export interface UserTypes {
     fullName: string,
     email: string,
     mobileNumber: number,

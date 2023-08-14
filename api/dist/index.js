@@ -8,7 +8,8 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./routes/user"));
-const jwtUtils_1 = require("./utils/jwtUtils");
+const product_1 = __importDefault(require("./routes/product"));
+// import { verifyToken } from './utils/jwtUtils'
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -26,8 +27,9 @@ mongoose_1.default.connect(mongo_url, options)
     console.error('Error connecting to the database:', error);
 });
 const port = process.env.PORT;
-app.use(jwtUtils_1.verifyToken);
+// app.use(verifyToken)
 app.use('/api', user_1.default);
+app.use('/api', product_1.default);
 app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
 });

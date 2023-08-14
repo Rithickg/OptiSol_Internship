@@ -5,23 +5,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const ProductSchema = new mongoose_1.default.Schema({
-    productName: {
+    name: {
         type: String,
         required: true
     },
-    productBrand: {
+    brand: {
         type: String,
         required: true
     },
-    productCategory: {
+    category: {
         type: String,
         required: true
     },
-    productImageUrl: {
+    imageUrl: {
         type: String,
         required: true
     },
-    productDescription: {
+    description: {
         type: String,
         required: true
     },
@@ -29,9 +29,9 @@ const ProductSchema = new mongoose_1.default.Schema({
         type: Number,
         required: true
     },
-    productPrice: {
+    price: {
         type: Number,
         required: true
     }
 }, { timestamps: true });
-module.exports = mongoose_1.default.model("Product", ProductSchema);
+exports.default = mongoose_1.default.model("Product", ProductSchema);

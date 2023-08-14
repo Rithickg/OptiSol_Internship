@@ -2,18 +2,19 @@ import express, { Request, Response } from 'express'
 import User from '../models/User'
 import bcrypt from 'bcrypt'
 import { generateToken } from '../utils/jwtUtils'
+import { UserTypes } from '../models/User'
 
 const router = express.Router()
 
 router.post('/signup', async (req: Request, res: Response) => {
-    const { password } = req.body
+    const { fullName, email, mobileNumber, password }: UserTypes = req.body
     try {
         const salt = await bcrypt.genSalt(15);
         const hashedPass = await bcrypt.hash(password, salt);
         const newUser = new User({
-            fullName: req.body.fullName,
-            email: req.body.email,
-            mobileNumber: req.body.mobileNumber,
+            fullName,
+            email,
+            mobileNumber,
             password: hashedPass
         })
         const savedUser = await newUser.save();

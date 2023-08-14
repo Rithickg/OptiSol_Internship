@@ -1,33 +1,33 @@
 import mongoose, { Schema } from "mongoose";
 
-interface ProductTypes {
-    productName: string,
-    productBrand: string,
-    productCategory: string,
-    productImageUrl: string,
-    productDescription: string,
+export interface ProductTypes {
+    name: string,
+    brand: string,
+    category: string,
+    imageUrl: string,
+    description: string,
     stockQuantity: number,
-    productPrice: number
+    price: number
 }
 
 const ProductSchema: Schema<ProductTypes> = new mongoose.Schema({
-    productName: {
+    name: {
         type: String,
         required: true
     },
-    productBrand: {
+    brand: {
         type: String,
         required: true
     },
-    productCategory: {
+    category: {
         type: String,
         required: true
     },
-    productImageUrl: {
+    imageUrl: {
         type: String,
         required: true
     },
-    productDescription: {
+    description: {
         type: String,
         required: true
     },
@@ -35,10 +35,10 @@ const ProductSchema: Schema<ProductTypes> = new mongoose.Schema({
         type: Number,
         required: true
     },
-    productPrice: {
+    price: {
         type: Number,
         required: true
     }
 }, { timestamps: true })
 
-module.exports = mongoose.model("Product", ProductSchema)
+export default mongoose.model("Product", ProductSchema)

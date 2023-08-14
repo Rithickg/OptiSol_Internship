@@ -18,14 +18,14 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const jwtUtils_1 = require("../utils/jwtUtils");
 const router = express_1.default.Router();
 router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { password } = req.body;
+    const { fullName, email, mobileNumber, password } = req.body;
     try {
         const salt = yield bcrypt_1.default.genSalt(15);
         const hashedPass = yield bcrypt_1.default.hash(password, salt);
         const newUser = new User_1.default({
-            fullName: req.body.fullName,
-            email: req.body.email,
-            mobileNumber: req.body.mobileNumber,
+            fullName,
+            email,
+            mobileNumber,
             password: hashedPass
         });
         const savedUser = yield newUser.save();
