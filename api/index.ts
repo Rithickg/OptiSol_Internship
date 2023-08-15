@@ -12,6 +12,7 @@ dotenv.config()
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
+app.use(express.static('public'))
 
 const mongo_url: string = process.env.MONGO_URL!
 

@@ -30,11 +30,13 @@ export const SignIn = () => {
                 <img src={productImg} alt='feature' className='signin-img' />
             </div>
             <div className="signin-form">
+                <h1>Welcome to the Store</h1>
+                <h2>Sign-Up</h2>
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" placeholder="enter email" onChange={e => setEmail(e.target.value)} />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" placeholder="enter password" onChange={e => setPassword(e.target.value)} />
-                <p>Don't have an account? <Link to='/signup'>SignUp</Link></p>
+                <p>Don't have an account? <Link className='link' to='/signup'>SignUp</Link></p>
                 <button onClick={handleSignIn}>Login</button>
             </div>
         </div>

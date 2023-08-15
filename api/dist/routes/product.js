@@ -14,9 +14,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Product_1 = __importDefault(require("../models/Product"));
+const multer_1 = __importDefault(require("multer"));
+const path_1 = __importDefault(require("path"));
 const router = express_1.default.Router();
-router.post('/add-product', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, brand, category, imageUrl, description, stockQuantity, price } = req.body;
+const storage = multer_1.default.diskStorage({
+    destination: 'public/products',
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "-" + Date.now() + path_1.default.extname(file.originalname));
+    }
+});
+const upload = (0, multer_1.default)({
+    storage: storage
+});
+router.post('/add-product', upload.single('file'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    console.log(req.file);
+    const imageUrl = (_a = req.file) === null || _a === void 0 ? void 0 : _a.filename;
+    const { name, brand, category, description, stockQuantity, price } = req.body;
+    console.log(name, brand, category, imageUrl, description, stockQuantity, price);
     try {
         const newProduct = new Product_1.default({
             name,

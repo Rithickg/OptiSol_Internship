@@ -1,11 +1,30 @@
 import express, { Request, Response } from 'express'
 import Product from '../models/Product'
 import { ProductTypes } from '../models/Product'
+import multer from 'multer'
+import path from 'path'
 
 const router = express.Router()
 
-router.post('/add-product', async (req: Request, res: Response) => {
-    const { name, brand, category, imageUrl, description, stockQuantity, price }: ProductTypes = req.body
+const storage = multer.diskStorage({
+    destination: 'public/products',
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({
+    storage: storage
+})
+
+
+
+router.post('/add-product', upload.single('file'), async (req: Request, res: Response) => {
+    console.log(req.file)
+    const imageUrl = req.file?.filename
+    const { name, brand, category, description, stockQuantity, price }: ProductTypes = req.body
+    console.log(name, brand, category, imageUrl, description, stockQuantity, price)
+
     try {
         const newProduct = new Product({
             name,

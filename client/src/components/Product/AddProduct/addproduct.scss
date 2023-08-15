@@ -1,3 +1,16 @@
+.product {
+    width: 100%;
+    height: 100vh;
+
+    text-align: center;
+    margin: 0 auto;
+    // background-color: rgb(246, 244, 231);
+
+    h1 {
+        color: rgb(251, 116, 61);
+    }
+}
+
 .product-img {
     width: 300px;
     height: 300px;
@@ -8,15 +21,106 @@
 }
 
 
+// .product-form {
+//     display: flex;
+//     flex-direction: column;
+
+//     input {
+//         width: min-content;
+//     }
+
+//     button {
+//         width: fit-content;
+//     }
+// }
+
 .product-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    height: 500px;
+    width: 800px;
+    padding: 5px;
 
-    input {
-        width: min-content;
+    label {
+        font-size: 20px;
+        padding-left: 20px;
+        text-align: left;
+        margin-bottom: 3px;
+        font-weight: 400;
+        color: rgb(48, 50, 67);
+    }
+
+    input,
+    select {
+        margin-left: 20px;
+        margin-bottom: 3px;
+        width: 250px;
+        height: 30px;
+        border: none;
+        background-color: rgb(248, 248, 248);
+        padding: 5px;
+    }
+
+    textarea {
+        margin-left: 20px;
+        margin-bottom: 3px;
+        width: 250px;
+        height: 100px;
+        border: none;
+        background-color: rgb(248, 248, 248);
+        padding: 5px;
     }
 
     button {
         width: fit-content;
+        height: 30px;
+        border: none;
+        font-size: 18px;
+        font-weight: 400;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        background-color: rgb(251, 116, 61)
     }
+
+    h1 {
+        color: rgb(48, 50, 67);
+    }
+
+    h2 {
+        color: rgb(251, 116, 61)
+    }
+
+    p {
+        color: rgb(48, 50, 67);
+        text-align: start;
+        margin-left: 20px;
+        padding: 5px;
+    }
+}
+
+.section-container {
+    display: flex;
+
+    flex-direction: row;
+
+}
+
+.section-one {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+}
+
+.section-two {
+    display: flex;
+    margin: 20px;
+
+    flex-direction: column;
 }

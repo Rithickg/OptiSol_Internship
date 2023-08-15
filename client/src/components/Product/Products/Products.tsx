@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import './products.scss'
+import { Product } from "../Product/Product"
 
 export interface ProductTypes {
     name: string,
@@ -25,20 +27,12 @@ export const Products = () => {
     }, [])
     console.log("Products", products)
     return (
-        <div>
+        <div className="products">
             <h1>All Products</h1>
-            <div>
-                {products?.map((product: ProductTypes) => {
-                    return (
-                        <div key={product._id}>
-                            <img src={product.imageUrl} alt={product.name} />
-                            <h1>{product.name}</h1>
-                            <h6>{product.brand}</h6>
-                            <p>{product.description}</p>
-                            <p>{product.price}</p>
-                        </div>
-                    )
-                })}
+            <div className="product-container">
+                {products.map((product: ProductTypes) => (
+                    <Product product={product} />
+                ))}
             </div>
         </div>
     )

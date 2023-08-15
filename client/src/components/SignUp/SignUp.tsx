@@ -49,9 +49,9 @@ export const SignUp = () => {
                 <input type="password" id="confirmPassword" placeholder="Confirm Password" />
                 <div className='pass'>
                     <input type='checkbox' />
-                    <label>show password</label>
+                    <span>show password</span>
                 </div>
-                <p>Already have an account? <Link to="/signin">SignIn</Link></p>
+                <p>Already have an account? <Link className='link' to="/signin">SignIn</Link></p>
                 <button onClick={handleSignUp}>SignUp</button>
             </div>
         </div>

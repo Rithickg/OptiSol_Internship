@@ -1,6 +1,6 @@
 // import { Login } from "../Login/Login"
 // import { AddProduct } from "../Product/AddProduct/AddProduct"
-import { Products } from "../Product/Products/Products"
+// import { Products } from "../Product/Products/Products"
 import { SignUp } from "../SignUp/SignUp"
 
 export const HomePage = () => {
@@ -8,7 +8,7 @@ export const HomePage = () => {
         <div className="homepage">
             {/* <h1>HomePage</h1> */}
             <SignUp />
-            <Products />
+            {/* <Products /> */}
             {/* <Login />
             <AddProduct /> */}
         </div>
