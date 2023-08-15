@@ -1,4 +1,17 @@
-.signup {
+// .login-form {
+//     display: flex;
+//     flex-direction: column;
+
+//     input {
+//         width: min-content;
+//     }
+
+//     button {
+//         width: fit-content;
+//     }
+// }
+
+.signin {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,11 +19,11 @@
     height: 100vh;
     width: 700px;
     margin: 0 auto;
-    // background-color: rgb(48, 50, 67);
+    background-color: rgb(48, 50, 67);
     border-radius: 20px;
 }
 
-.signup-cover {
+.signin-cover {
     width: 350px;
     height: 500px;
     background-color: rgb(246, 244, 231);
@@ -19,7 +32,7 @@
 
 }
 
-.signup-img {
+.signin-img {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     width: 350px;
@@ -27,7 +40,7 @@
     // overflow: hidden;
 }
 
-.signup-form {
+.signin-form {
     display: flex;
     flex-direction: column;
     justify-content: center;

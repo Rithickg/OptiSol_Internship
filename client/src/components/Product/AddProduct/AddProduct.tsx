@@ -33,10 +33,15 @@ export const AddProduct = () => {
 
     const handleSubmit = async () => {
         console.log("product", product)
-        const res = await axios.post('http://localhost:2002/api/add-product', {
-            product
-        })
-        console.log(res)
+        try {
+            const res = await axios.post('http://localhost:2002/api/add-product', {
+                product
+            })
+            console.log(res)
+        } catch (error) {
+            console.error(error)
+        }
+
     }
     return (
         <div>
