@@ -8,6 +8,7 @@ import { SignIn } from './components/SignIn/SignIn.tsx'
 import { SignUp } from './components/SignUp/SignUp.tsx'
 import { AddProduct } from './components/Product/AddProduct/AddProduct.tsx'
 import { Products } from './components/Product/Products/Products.tsx'
+import { Dashboard } from './components/Dashboard/Dashboard.tsx'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -28,6 +29,10 @@ const router = createBrowserRouter([{
 {
   path: '/products',
   element: <Products />
+},
+{
+  path: '/dashboard',
+  element: <Dashboard />
 }])
 
 const queryClient = new QueryClient()
