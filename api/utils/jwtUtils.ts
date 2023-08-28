@@ -1,4 +1,4 @@
-import { Request } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken'
 
 
@@ -14,6 +14,7 @@ export const verifyToken = (token: string): string | object => {
     }
 }
 
+// Not Used
 export const getUserIdFromRequest = (req: Request): string | null => {
     const token = req.headers.authorization?.split('')[1];
     if (token) {
@@ -21,4 +22,21 @@ export const getUserIdFromRequest = (req: Request): string | null => {
         return (decodedToken as { userId: string }).userId;
     }
     return null;
+}
+
+export const authVerify = (req: Request, res: Response, next: NextFunction) => {
+    const token = req.header('auth-token')
+    if (!token) {
+        return res.status(401).json("No authorized token found, Access Denied !")
+    }
+    try {
+        const verify = verifyToken(token)
+        // userId is not sent from frontend
+        // req.userId =verify.userId
+        // console.log(verify)
+        next()
+
+    } catch (error) {
+        res.status(400).json("Invalied Token")
+    }
 }

@@ -17,6 +17,9 @@ export const SignIn = () => {
             })
             console.log(res)
             if (res.status == 200) {
+                const token = res.data.Token;
+                localStorage.setItem('jwt_token', token);
+                localStorage.setItem('userId', res.data.User._id)
                 navigate('/')
             }
 

@@ -9,6 +9,7 @@ const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./routes/user"));
 const product_1 = __importDefault(require("./routes/product"));
+const jwtUtils_1 = require("./utils/jwtUtils");
 // import { verifyToken } from './utils/jwtUtils'
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -30,7 +31,7 @@ mongoose_1.default.connect(mongo_url, options)
 const port = process.env.PORT;
 // app.use(verifyToken)
 app.use('/api', user_1.default);
-app.use('/api', product_1.default);
+app.use('/api', jwtUtils_1.authVerify, product_1.default);
 app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
 });

@@ -4,6 +4,7 @@ import cors from "cors"
 import mongoose, { ConnectOptions } from 'mongoose'
 import userRoute from './routes/user'
 import productRoute from './routes/product'
+import { authVerify } from './utils/jwtUtils'
 // import { verifyToken } from './utils/jwtUtils'
 
 dotenv.config()
@@ -33,7 +34,7 @@ mongoose.connect(mongo_url, options as ConnectOptions)
 const port = process.env.PORT
 // app.use(verifyToken)
 app.use('/api', userRoute);
-app.use('/api', productRoute);
+app.use('/api', authVerify, productRoute);
 
 app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);

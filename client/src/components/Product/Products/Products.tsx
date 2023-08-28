@@ -3,6 +3,7 @@ import axios from "axios"
 import './products.scss'
 import { Product } from "../Product/Product"
 
+
 export interface ProductTypes {
     name: string,
     brand: string,
@@ -16,10 +17,16 @@ export interface ProductTypes {
     _v: string
 }
 export const Products = () => {
+
     const [products, setProducts] = useState([])
     useEffect(() => {
         const data = async () => {
-            const res = await axios.get('http://localhost:2002/api/view-product')
+            const token = localStorage.getItem("jwt_token")
+            const res = await axios.get('http://localhost:2002/api/view-product', {
+                headers: {
+                    "auth-token": token
+                }
+            })
             setProducts(res.data.Products)
             console.log("Res", res)
         }

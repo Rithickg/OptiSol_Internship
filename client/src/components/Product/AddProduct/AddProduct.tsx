@@ -45,10 +45,12 @@ export const AddProduct = () => {
         console.log('formdata', formData)
         console.log(product.imageUrl)
         try {
+            const token = localStorage.getItem("jwt_token")
+
             const res = await axios.post('http://localhost:2002/api/add-product', formData,
                 {
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        "auth-token": token
                     }
                 }
             )
